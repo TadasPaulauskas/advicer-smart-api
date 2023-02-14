@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-import 'bloc/advicer_bloc.dart';
+import 'cubit/advicer_c_cubit.dart';
 
 class AdvicerPageWrapperProvider extends StatelessWidget {
   const AdvicerPageWrapperProvider({super.key});
@@ -14,7 +14,7 @@ class AdvicerPageWrapperProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AdvicerBloc(),
+      create: (context) => AdvicerCCubit(),
       child: const AdvicerPage(),
     );
   }
@@ -48,7 +48,7 @@ class AdvicerPage extends StatelessWidget {
           children: [
             Expanded(
               child: Center(
-                child: BlocBuilder<AdvicerBloc, AdvicerState>(
+                child: BlocBuilder<AdvicerCCubit, AdvicerCState>(
                   builder: (context, state) {
                     if (state is AdvicerInitial) {
                       return Text(
